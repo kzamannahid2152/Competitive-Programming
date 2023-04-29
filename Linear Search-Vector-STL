@@ -1,0 +1,23 @@
+#LINERAR SERACHING
+
+int main()
+{
+  int arr[10];
+  for(int i=0;i<10;i++)cin>>arr[i];
+
+  int key;cin>>key;
+
+  bool flug=0;
+
+  for(int i=0;i<10;i++){
+    if(key==arr[i]){
+      flug=1;
+       break;
+    }
+  }
+
+  if(flug==1)cout<<"YES"<<endl;
+  else if(flug==0)cout<<"NO"<<endl;
+
+// cerr << 1.0 * (clock() - st) / CLOCKS_PER_SEC << '\n'; 
+}
