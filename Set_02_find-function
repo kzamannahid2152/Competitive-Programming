@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+/*void print(set<string>s){
+    for(auto val : s){
+        cout<<val<<endl;
+    }
+}
+*/
+int main(){
+    set<string>s;
+    s.insert ("abc");
+    s.insert ("gjuorig");
+    s.insert ("dgfnkd");
+    s.insert ("gjuorig");  //it will not print bcz set do not print multiple 
+                          //value or duplicate value. it will print for once;
+    s.insert ("tyue49857");
+
+    auto it = s.find("abcr");
+    if(it != s.end()){
+        cout<<"Found it : ";
+        cout<<(*it)<<endl;
+    }
+    else{
+        cout<<"Not found it\n";
+    }
+
+    print(s);
+    
+    return 0;
+
+}
