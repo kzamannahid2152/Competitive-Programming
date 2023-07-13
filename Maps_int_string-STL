@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    map<int,string>m;
+    int n;
+    cin>>n;
+
+    for(int i=0; i<n; i++){
+        int a; string b;
+        cin>>a>>b;
+        m[a] = b;
+    }
+
+    cout<<"After print\n";
+    for(auto i:m){
+        cout<<i.first<<" "<<i.second<<endl;
+    }
+
+    return 0;
+}
