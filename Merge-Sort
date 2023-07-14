@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printArray(int a[], int n){
+    for(int i=0; i<n; i++){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+}
+
+void mergeArrays(int a[], int low, int high){
+
+    int mid = (low+high)/2;
+
+    int len1 = mid - low + 1;
+    int len2 = high - mid;
+
+    int *first = new int[len1];
+    int *second = new int[len2];
+
+    //copying array
+    int mainArrayIndex = low;
+    for(int i=0; i<len1; i++){
+        first[i] = a[mainArrayIndex++];
+    }
+
+    mainArrayIndex = mid + 1;
+    for(int i=0; i<len2; i++){
+        second[i] = a[mainArrayIndex++];
+    }
+
+    //merge 2 sorted array
+
+    int index1 = 0;
+    int index2 = 0;
+    mainArrayIndex  = low;
+
+    while(index1 < len1 && index2  < len2){
+        if(first[index1] < second[index2]){
+            a[mainArrayIndex++] = first[index1++];
+        }
+        else{
+            a[mainArrayIndex++] = second[index2++];
+        }
+    }
+
+    while(index1 < len1){
+        a[mainArrayIndex++] = first[index1++];
+    }
+    while(index2 < len2){
+        a[mainArrayIndex++] = second[index2++];
+    }
+
+}
+
+void mergeSort(int a[], int low, int high){
+
+    if(low >= high){
+        return ;
+    }
+
+    int mid = (low+high)/2;
+    mergeSort(a, low, mid);
+    mergeSort(a, mid+1, high);
+    mergeArrays(a,low, high);
+
+
+}
+
+int main(){
+
+    int a[5] = {5,4,3,2,1};
+    int n=5;
+
+    printArray(a,n);
+    mergeSort(a, 0, n-1);
+    printArray(a,n);
+}
